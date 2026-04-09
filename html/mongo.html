@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electron Agenda</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+
+<body class="mongo">
+    <header>
+        <div class="panelMongo">
+            <h1>Panel MongoDB</h1>
+        </div>
+        <div class="der">
+            <button class="addUser">
+                <i class='bx bxs-user'></i>
+                <p>Add user</p>
+            </button>
+        </div>
+
+    </header>
+    <section class="abajo">
+
+        <table class="tablamongo">
+
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>apellidos</th>
+                    <th>telefono</th>
+                    <th>direccion</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+
+
+            <tbody class="listaClientesMongo">
+
+            </tbody>
+
+        </table>
+
+    </section>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="../api/renderer.js"></script>
+
+</body>
+
+</html>

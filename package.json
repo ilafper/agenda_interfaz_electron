@@ -1,0 +1,18 @@
+{
+  "name": "interfaz_agenda_electron_recu",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ivan",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.13.2",
+    "electron": "^39.2.3",
+    "jquery": "^3.7.1",
+    "mongodb": "^7.0.0"
+  }
+}
