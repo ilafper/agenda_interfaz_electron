@@ -1,4 +1,3 @@
-
 $(function () {
   async function cargarClientesMongo() {
     try {
@@ -12,13 +11,25 @@ $(function () {
       let clientes = $(".listaClientesMongo");
       clientes.empty();
 
-      let lista_cliente= lista_clientes_mongo.data.lista_clientes;
+      let lista_cliente = lista_clientes_mongo.data.lista_clientes;
       console.log(lista_cliente);
 
       for (let cada_cliente of lista_cliente) {
         let targetaCliente = `
                 <tr>
-                    <td>${cada_cliente.nombre}</td>
+                    <td>
+                        <div class="nombre_email">
+                            <div class="ladoIzq">
+                                <div class="perfil">
+                                    
+                                </div>
+                            </div>
+                            <div class="ladoDer">
+                                <p>${cada_cliente.nombre}</p>
+                                <p>${cada_cliente.correo}</p>
+                            </div>
+                        </div>
+                    </td>
                     <td>${cada_cliente.apellidos}</td>
                     <td>${cada_cliente.telefono}</td>
                     <td>${cada_cliente.direccion}</td>

@@ -66,7 +66,7 @@ body {
 .mongo{
     display: flex;
     flex-direction: column;
-
+    font-family: 'Poppins', sans-serif;
 }
 
 header{
@@ -119,9 +119,8 @@ header{
 }
 
 .listaClientesMongo{
-    background-color: white;
-    color: black;
-}
+    background-color: rgb(255, 255, 255,0.75);
+    color: black;}
 
 .tablamongo{
     width: 60%;
@@ -129,9 +128,42 @@ header{
 }
 
 
+.tablamongo td{
+    text-align: center;
+}
 
 
+.nombre_email {
+  display: flex;           
+  align-items: center;      
+  gap: 5px;                
+  margin: 0;
+  padding: 0;
+}
 
+
+.ladoDer{
+    text-align: left;
+}
+
+.ladoIzq {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  padding-left: 20px;
+}
+.ladoDer p {
+    margin: 0;
+    padding: 0;
+}
+
+.perfil{
+    border-radius: 50%;
+    background-color: #131E3F;
+    width: 30px;
+    height: 30px;
+}
 
 
 
