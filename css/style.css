@@ -80,6 +80,10 @@ header{
     
 }
 
+.busca{
+    
+}
+
 .panelMongo{
     padding-left: 3%;
 }
@@ -119,10 +123,12 @@ header{
 }
 
 .listaClientesMongo{
+    padding: 100px;
     background-color: rgb(255, 255, 255,0.75);
     color: black;}
 
 .tablamongo{
+    padding: 10px;
     width: 60%;
     border-collapse: collapse;
 }
@@ -165,6 +171,138 @@ header{
     height: 30px;
 }
 
+table th{
+    color: white;
+}
+
+.bottones{
+   height: 50px;
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   gap: 10px;
+   align-items: center;
+}
+
+
+.modalCrear{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modalBorrar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 900;
+}
+
+.modalEditar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 800;
+}
+
+
+
+
+
+.formu-content,  .formu-content2{
+    background: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    width: 300px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    position: relative;
+}
+
+
+
+.cerrarr {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.cerrar {
+    background: none;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.formu-content input {
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+.enviarDatos {
+    width: 100%;
+    padding: 10px;
+    background: #131E3F;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.enviarDatos:hover {
+    background: #131E3F;    
+}
+
+.bottones {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+
+
+.editarBtn, .borrarBtn {
+    border: none;
+    padding: 5px;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s;
+    font-size: 16px;
+    color: white;
+}
+
+.editarBtn{
+    background-color: orange;
+}
+
+.borrarBtn{
+    background-color: rgb(202, 65, 65);
+}
 
 
 

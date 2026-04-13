@@ -1,0 +1,104 @@
+/* GENERAL */
+body {
+    margin: 0;
+    font-family: Arial;
+    background: #f4f6f9;
+}
+
+/* HEADER */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: white;
+    border-bottom: 1px solid #ddd;
+}
+
+/* TITULO */
+.title h1 {
+    margin: 0;
+    font-size: 20px;
+}
+
+/* FILTROS */
+.filtroBar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.filtroBar select,
+.filtroBar input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.filtroBar button {
+    padding: 8px 12px;
+    border: none;
+    background: #0d6efd;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.filtroBar button:hover {
+    background: #0b5ed7;
+}
+
+/* BOTON ADD USER */
+.addUser {
+    background: #198754;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* CONTENIDO */
+.content {
+    padding: 20px;
+}
+
+/* TABLA */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+    text-align: left;
+}
+
+/* BOTONES ACCIONES */
+.edit {
+    background: #0d6efd;
+    color: white;
+    border: none;
+    padding: 6px 8px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.delete {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 6px 8px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.edit:hover { background: #0b5ed7; }
+.delete:hover { background: #bb2d3b; }

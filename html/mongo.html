@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    
+
 </head>
 
 
@@ -17,13 +17,33 @@
         <div class="panelMongo">
             <h1>Panel MongoDB</h1>
         </div>
+        <div class="filtrooo">
+    
+            <div class="filtroBar">
+    
+                <select class="campoFiltro">
+                    <option value="nombre">Nombre</option>
+                    <option value="apellidos">Apellidos</option>
+                    <option value="direccion">direccion</option>
+                    <option value="telefono">telefono</option>
+                    <option value="correo">correo</option>
+                </select>
+    
+                <input type="text" class="valorFiltro" placeholder="Buscar cliente...">
+    
+                <button class="buscarFiltro"><i class='bx bx-search'></i></button>
+    
+            </div>
+    
+        </div>
+    
         <div class="der">
             <button class="addUser">
                 <i class='bx bxs-user'></i>
                 <p>Add user</p>
             </button>
         </div>
-
+    
     </header>
     <section class="abajo">
 
@@ -47,6 +67,81 @@
         </table>
 
     </section>
+
+
+
+    <div class="modalCrear" style="display:none;">
+        
+        <div class="formu-content">
+            <div class="cerrarr">
+                <button class="cerrar"><i class='bx bx-x'></i></button>
+            </div>
+            <form method="post">
+                <label for="nombre">Nombre:</label><br>
+                <input type="text" id="nombre" name="nombre" required><br><br>
+
+                <label for="apellidos">Apellidos:</label><br>
+                <input id="apellidos" name="apellidos" required><br><br>
+
+                <label for="telefono">Telefono:</label><br>
+                <input type="tel" id="telefoono" name="telefono" required><br><br>
+
+                <label for="direccion">Direccion:</label><br>
+                <input type="text" id="direccion" name="telefono" required><br><br>
+
+                <label for="correo">Correo:</label><br>
+                <input type="email" name="text" id="correo"></input><br><br>
+
+
+
+
+                <button class="enviarDatos" type="submit">Crear</button>
+            </form>
+        </div>
+    </div>
+
+    
+    <div class="modalBorrar" style="display:none;">
+        
+        <div class="formu-content2">
+            <div class="cerrarr">
+                <button class="cerrar"><i class='bx bx-x'></i></button>
+            </div>
+            <form>
+                <button class="noBorrar" type="button">No</button>
+                <button class="siBorrar" type="button">Si</button>
+            </form>
+        </div>
+    </div>
+    <!-- editar cliente -->
+
+    <div class="modalEditar" style="display:none;">
+        
+        <div class="formu-content">
+            <div class="cerrarr">
+                <button class="cerrar"><i class='bx bx-x'></i></button>
+            </div>
+            <form>
+                <h3 class="text-center">Editar</h3>
+                <label for="nombre">Nombre:</label><br>
+                <input type="text" id="nombreEditar" name="nombre" required><br><br>
+
+                <label for="apellidos">Apellidos:</label><br>
+                <input id="apellidosEditar" name="apellidosEditar" required><br><br>
+
+                <label for="telefono">Telefono:</label><br>
+                <input type="tel" id="telefoonoEditar" name="telefono" required><br><br>
+
+                <label for="direccion">Direccion:</label><br>
+                <input type="text" id="direccionEditar" name="telefono" required><br><br>
+
+                <label for="correo">Correo:</label><br>
+                <input type="email" name="text" id="correoEditar"></input><br><br>
+
+                <button class="enviarModalEdit" type="submit">Editar</button>
+            </form>
+        </div>
+    </div>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="../api/renderer.js"></script>
 
