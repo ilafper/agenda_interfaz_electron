@@ -13,37 +13,41 @@
 
 
 <body class="mongo">
-    <header>
-        <div class="panelMongo">
+    <header class="headerClean">
+
+        <div class="left">
+            <button class="btnBack">
+                <i class='bx bx-arrow-back'></i>
+            </button>
+
             <h1>Panel MongoDB</h1>
         </div>
-        <div class="filtrooo">
-    
+
+        <div class="center">
             <div class="filtroBar">
-    
                 <select class="campoFiltro">
                     <option value="nombre">Nombre</option>
                     <option value="apellidos">Apellidos</option>
-                    <option value="direccion">direccion</option>
-                    <option value="telefono">telefono</option>
-                    <option value="correo">correo</option>
+                    <option value="direccion">Dirección</option>
+                    <option value="telefono">Teléfono</option>
+                    <option value="correo">Correo</option>
                 </select>
-    
+
                 <input type="text" class="valorFiltro" placeholder="Buscar cliente...">
-    
-                <button class="buscarFiltro"><i class='bx bx-search'></i></button>
-    
+
+                <button class="buscarFiltro">
+                    <i class='bx bx-search'></i>
+                </button>
             </div>
-    
         </div>
-    
-        <div class="der">
+
+        <div class="right">
             <button class="addUser">
-                <i class='bx bxs-user'></i>
-                <p>Add user</p>
+                <i class='bx bxs-user-plus'></i>
+                <span>Nuevo</span>
             </button>
         </div>
-    
+
     </header>
     <section class="abajo">
 
@@ -71,40 +75,61 @@
 
 
     <div class="modalCrear" style="display:none;">
-        
+
         <div class="formu-content">
-            <div class="cerrarr">
-                <button class="cerrar"><i class='bx bx-x'></i></button>
+
+            <div class="modalHeader">
+                <h2>Crear cliente</h2>
+
+                <button class="cerrar">
+                    <i class='bx bx-x'></i>
+                </button>
             </div>
-            <form method="post">
-                <label for="nombre">Nombre:</label><br>
-                <input type="text" id="nombre" name="nombre" required><br><br>
 
-                <label for="apellidos">Apellidos:</label><br>
-                <input id="apellidos" name="apellidos" required><br><br>
+            <form method="post" class="formGrid">
 
-                <label for="telefono">Telefono:</label><br>
-                <input type="tel" id="telefoono" name="telefono" required><br><br>
+                <div class="fiill">
+                    <label>Nombre</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
 
-                <label for="direccion">Direccion:</label><br>
-                <input type="text" id="direccion" name="telefono" required><br><br>
+                <div class="fiill">
+                    <label>Apellidos</label>
+                    <input type="text" id="apellidos" name="apellidos" required>
+                </div>
 
-                <label for="correo">Correo:</label><br>
-                <input type="email" name="text" id="correo"></input><br><br>
+                <div class="fiill">
+                    <label>Teléfono</label>
+                    <input type="tel" id="telefono" name="telefono" required>
+                </div>
 
+                <div class="fiill">
+                    <label>Dirección</label>
+                    <input type="text" id="direccion" name="direccion" required>
+                </div>
 
+                <div class="fiill">
+                    <label>Correo</label>
+                    <input type="email" id="correo" name="correo" required>
+                </div>
 
+                <button class="enviarDatos" type="submit">
+                    Crear cliente
+                </button>
 
-                <button class="enviarDatos" type="submit">Crear</button>
             </form>
+
         </div>
+
     </div>
 
-    
+
     <div class="modalBorrar" style="display:none;">
-        
+
         <div class="formu-content2">
+            
             <div class="cerrarr">
+                <h3>¿Estas seguro de borrar este cliente?</h3>
                 <button class="cerrar"><i class='bx bx-x'></i></button>
             </div>
             <form>
@@ -113,35 +138,7 @@
             </form>
         </div>
     </div>
-    <!-- editar cliente -->
 
-    <div class="modalEditar" style="display:none;">
-        
-        <div class="formu-content">
-            <div class="cerrarr">
-                <button class="cerrar"><i class='bx bx-x'></i></button>
-            </div>
-            <form>
-                <h3 class="text-center">Editar</h3>
-                <label for="nombre">Nombre:</label><br>
-                <input type="text" id="nombreEditar" name="nombre" required><br><br>
-
-                <label for="apellidos">Apellidos:</label><br>
-                <input id="apellidosEditar" name="apellidosEditar" required><br><br>
-
-                <label for="telefono">Telefono:</label><br>
-                <input type="tel" id="telefoonoEditar" name="telefono" required><br><br>
-
-                <label for="direccion">Direccion:</label><br>
-                <input type="text" id="direccionEditar" name="telefono" required><br><br>
-
-                <label for="correo">Correo:</label><br>
-                <input type="email" name="text" id="correoEditar"></input><br><br>
-
-                <button class="enviarModalEdit" type="submit">Editar</button>
-            </form>
-        </div>
-    </div>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="../api/renderer.js"></script>
 

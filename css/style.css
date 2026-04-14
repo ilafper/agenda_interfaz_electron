@@ -1,63 +1,131 @@
+/* BASE */
 body {
-
-    background-color:#131E3F;
     margin: 0;
-    padding: 0;
-    min-height: 100vh;
-    
-
+    font-family: 'Poppins', sans-serif;
+    background: #0f172a; 
+    color: white;
 }
 
-.inicio{
-    display:flex;
-    justify-content: center;
-    align-items: center;
 
-}
-
-.todo{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    border: 1px solid rgb(0, 0, 0);
-    padding: 20px;
-    gap: 10px;
-}
-
-.caja1, .caja2{
-    text-decoration: none;
-    border: 3px solid rgb(255, 255, 255);
-    width: 400px;
-    height: 500px;
+.inicio {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    background-color: #F9FAFB;
-    border-radius: 10px;
+    justify-content: center;
+    height: 100vh;
 }
 
-.caja1, .caja2 p{
-    color: rgb(0, 0, 0);
+.titulo {
+    font-size: 32px;
+    margin-bottom: 40px;
+    font-weight: 600;
+    letter-spacing: 1px;
 }
 
-.nombre{
-    
-    text-align: center;
-    font-size: 40px;
+
+.todo {
+    display: flex;
+    gap: 25px;
+    width: 50%;
+    border: 1px solid white;
+    justify-content: center;
+    padding: 30px;
+}
+
+/* TARJETAS */
+.card {
+    position: relative;
+    width: 260px;
+    height: 360px;
+    background: #ffffff; /* azul oscuro más claro */
+    border-radius: 16px;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+    transition: 0.25s;
+    border: 1px solid transparent;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+}
+
+/* ACTIVO */
+.card.activo {
+    border: 5px solid #5CE65C; 
+}
+
+/* CHECK */
+.check {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 2px solid #555;
+}
+
+.card.activo .check {
+    background: #67f367;
+    border: none;
+
+}
+
+.card.activo .check::after {
+    content: "✓";
+    position: absolute;
+    color: #0f172a;
+    border: 3px;
+    font-size: 14px;
     font-weight: bold;
-    color: rgb(0, 0, 0);
+    top: 1px;
+    left: 5px;
+    transition: background-color 0.5s ease-in-out 0.1s;
 }
 
-.imagene{
-    width: 350px;
-    height: 250px;
+/* TEXTO */
+.nombre {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
 }
 
-.imagene2{
-    width: 350px;
-    height:300px;
+
+
+/* IMAGEN */
+.imagene, .imagene2 {
+    width: 180px;
+    margin-bottom: 15px;
 }
+
+/* BOTÓN */
+#btnIr {
+    margin-top: 40px;
+    padding: 12px 30px;
+    border-radius: 8px;
+    border: none;
+    background: #1cf19f;
+    color: #0f172a;
+    font-weight: bold;
+    cursor: pointer;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+#btnIr.mostrar {
+    opacity: 1;
+}
+
+#btnIr:hover {
+    filter: brightness(1.1);
+}
+
+
 
 
 /*PARTE MONGO PANEL*/
@@ -69,88 +137,216 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
-header{
+/* HEADER */
+.headerClean {
     display: flex;
-    flex-direction: row;
+    align-items: center;
     justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    background-color: aliceblue;
-    color: black;
-    
+    padding: 12px 30px;
+    background: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
 }
 
-.busca{
-    
-}
-
-.panelMongo{
-    padding-left: 3%;
-}
-
-.panelMongo h1{
-   font-weight: bold;
-   font-size: 30px;
-}
-
-.der{
-    padding-right: 5%;
-}
-
-.addUser{
-    background-color: #131E3F;
-    color: white;
-    border-radius: 10px;
-    width: 150px;
-    height: 50px;
+/* IZQUIERDA */
+.left {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
+}
+
+.left h1 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #131E3F;
+}
+
+/* BOTON ATRAS */
+.btnBack {
+    background: transparent;
+    border: 1px solid #d1d5db;
+    padding: 6px 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    color: #131E3F;
+    transition: 0.2s;
+}
+
+.btnBack:hover {
+    background: #131E3F;
+    color: white;
+}
+
+/* CENTRO */
+.center {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+
+.filtroBar {
+    display: flex;
+    align-items: center;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+    overflow: hidden;
+    background: white;
+}
+
+
+.campoFiltro,
+.valorFiltro {
+    border: none;
+    outline: none;
+    padding: 8px 10px;
+    font-family: inherit;
+    color: #131E3F;
+}
+
+/* INPUT */
+.valorFiltro {
+    min-width: 200px;
+}
+
+/* BOTON BUSCAR */
+.buscarFiltro {
+    background: #131E3F;
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: 0.5s;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 12px;
+    font-weight: bold;
+
+}
+.buscarFiltro i{
     font-weight: bold;
 }
-.addUser i {
-    color: white;
+
+
+.buscarFiltro:hover {
+    background: #0f172a;
 }
 
-.abajo{
-    width: 100%;
-    height: 80vh;
+/* DERECHA */
+.right {
     display: flex;
-    justify-content: center;
     align-items: center;
 }
 
-.listaClientesMongo{
-    padding: 100px;
-    background-color: rgb(255, 255, 255,0.75);
-    color: black;}
+.addUser {
+    background: #131E3F;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.2s;
+}
 
-.tablamongo{
-    padding: 10px;
-    width: 60%;
-    border-collapse: collapse;
+.addUser  i {
+    font-size: 22px;
+}
+
+.addUser:hover {
+    background: #0f172a;
+}
+.abajo{
+    margin-top: auto;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+   
 }
 
 
-.tablamongo td{
+
+.tablamongo {
+    width: 70%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 14px;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+/* HEADER */
+.tablamongo thead th {
+    background: #0f172a;
+    color: white;
+    padding: 14px;
     text-align: center;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0.3px;
+    border: 1px solid white;
+    border-collapse: separate;
 }
 
+.tablamongo thead tr th:first-child {
+    border-top-left-radius: 14px;
+}
+
+.tablamongo thead tr th:last-child {
+    border-top-right-radius: 14px;
+}
+
+
+.tablamongo td {
+    padding: 14px;
+    text-align: center;
+    border-bottom: 1px solid #f1f5f9;
+    font-size: 14px;
+    color: #111827;
+}
+
+
+.tablamongo tbody tr {
+    transition: 0.2s ease;
+    background: white;
+}
+
+.tablamongo tbody tr:hover {
+    background: #f8fafc;
+}
 
 .nombre_email {
-  display: flex;           
-  align-items: center;      
-  gap: 5px;                
-  margin: 0;
-  padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
-
-.ladoDer{
-    text-align: left;
+/* CÍRCULO PERFIL */
+.perfil {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #0f172a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
 }
+
+/* TEXTO */
+.ladoDer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
 
 .ladoIzq {
   display: flex;
@@ -171,9 +367,6 @@ header{
     height: 30px;
 }
 
-table th{
-    color: white;
-}
 
 .bottones{
    height: 50px;
@@ -185,105 +378,148 @@ table th{
 }
 
 
-.modalCrear{
+.modalCrear {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.5);
+    inset: 0;
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(6px);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1000;
 }
 
-.modalBorrar{
+.modalBorrar {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.5);
+    inset: 0;
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(6px);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 900;
 }
 
-.modalEditar{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.5);
+
+
+
+.formu-content {
+    width: 420px;
+    background: white;
+    border-radius: 14px;
+    padding: 20px;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.25);
+    animation: modalIn 0.5s ease;
+}
+
+/* ANIMACIÓN SUAVE */
+@keyframes modalIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+/* HEADER MODAL */
+.modalHeader {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    z-index: 800;
+    margin-bottom: 15px;
 }
 
-
-
-
-
-.formu-content,  .formu-content2{
-    background: #fff;
-    padding: 25px;
-    border-radius: 10px;
-    width: 300px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    position: relative;
+.modalHeader h2 {
+    font-size: 18px;
+    color: #0f172a;
 }
 
-
-
-.cerrarr {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-}
-
+/* BOTÓN CERRAR */
 .cerrar {
-    background: none;
+    background: #f1f5f9;
     border: none;
-    font-size: 22px;
+    width:30px;
+    height:30px;
+    border-radius: 10px;
     cursor: pointer;
+    transition: 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.formu-content input {
-    width: 100%;
-    padding: 8px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    outline: none;
+.cerrar i{
+    font-size: 20px;
 }
+
+/* FORM GRID */
+.formGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* INPUT BLOQUES */
+.fiill label {
+    font-size: 12px;
+    color: #475569;
+    margin-bottom: 4px;
+    display: block;
+}
+
+.fiill input {
+    width: 95%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+    outline: none;
+    transition: 0.2s;
+}
+
+.fiill input:focus {
+    border-color: #0f172a;
+    box-shadow: 0 0 0 1px rgba(31, 48, 88, 0.76);
+}
+
 
 .enviarDatos {
-    width: 100%;
-    padding: 10px;
-    background: #131E3F;
+    margin-top: 10px;
+    padding: 15px;
+    background: #0f172a;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
+    transition: 0.2s;
+    font-weight: 800;
 }
 
 .enviarDatos:hover {
-    background: #131E3F;    
+    background: #111827;
+    transform: translateY(-1px);
 }
 
-.bottones {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
+/* ANIMACIÓN */
+@keyframes modalIn {
+    from {
+        transform: translateY(-15px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 
 
-.editarBtn, .borrarBtn {
+
+
+.borrarBtn {
     border: none;
     padding: 5px;
     border-radius: 6px;
@@ -296,14 +532,85 @@ table th{
     color: white;
 }
 
-.editarBtn{
-    background-color: orange;
-}
 
 .borrarBtn{
     background-color: rgb(202, 65, 65);
 }
 
+/*modal borrar estilos*/
+.formu-content2 {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 280px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  text-align: center;
+  animation: fadeIn 0.2s ease-in-out;
+}
 
+/* Botón cerrar */
+.cerrarr {
+  display: flex;
+  justify-content: flex-end;
+}
+.cerrarr h3{
+    color: black;
+}
 
+.cerrar {
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Botones */
+form {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+  gap: 10px;
+}
+
+.noBorrar,
+.siBorrar {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Botón NO */
+.noBorrar {
+  background: #e0e0e0;
+  color: #333;
+}
+
+.noBorrar:hover {
+  background: #ccc;
+}
+
+/* Botón SÍ */
+.siBorrar {
+  background: #121e46;
+  color: white;
+}
+
+.siBorrar:hover {
+  background: #c0392b;
+}
+
+/* Animación */
+@keyframes fadeIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
 

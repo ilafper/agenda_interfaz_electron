@@ -90,6 +90,10 @@ $(function () {
     $(document).on("click", ".cerrar", function (e) {
       $(".modalBorrar").fadeOut();
     });
+
+    $(document).on("click", ".noBorrar", function (e) {
+      $(".modalBorrar").fadeOut();
+    });
   }
 
 
@@ -145,6 +149,7 @@ function borrarCliente() {
 
     $(".modalBorrar").fadeIn();
   });
+  
 
   $(document).on("click", ".siBorrar", async function () {
 
@@ -189,9 +194,13 @@ borrarCliente();
 /*FILTROS  */
 let filtroCampo;
 let filtroValor;
+
+
 let nombreBusqueda;
 let filtroApe;
 let tlfBusqueda;
+let correoBusqueda;
+let direcionBusqueda;
 async function filtro() {
   $(document).on("click", ".buscarFiltro", async function () {
     filtroCampo = $(".campoFiltro").val();
@@ -216,8 +225,12 @@ async function filtro() {
       case "direccion":
         console.log(" direccion");
 
+        await direccionFiltro();
+
         break;
       case "correo":
+
+        await correoFiltro();
         console.log(" correo");
 
         break;
@@ -351,6 +364,121 @@ async function filtroTelefono() {
      const response = await fetch(`http://localhost:3000/api/filtrotelefono/${tlfBusqueda}`,{
       method:"GET"
      })
+     const data = await response.json();
+     
+     //console.log(data.mensaje);
+     //console.log(data.datos);
+      let clientes_sin_filtro = $(".listaClientesMongo");
+      clientes_sin_filtro.empty();
+
+      let lista_filtro_nombre = data.datos;
+      console.log(lista_filtro_nombre);
+
+      for (let cada_cliente of lista_filtro_nombre) {
+        let targetaCliente = `
+                <tr class="cada_cliente">
+                    <td>
+                        <div class="nombre_email">
+                            <div class="ladoIzq">
+                                <div class="perfil">
+                                    
+                                </div>
+                            </div>
+                            <div class="ladoDer">
+                                <p>${cada_cliente.nombre}</p>
+                                <p>${cada_cliente.correo}</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td>${cada_cliente.apellidos}</td>
+                    <td>${cada_cliente.telefono}</td>
+                    <td>${cada_cliente.direccion}</td>
+                    <td class="bottones">
+                        <div class="borrar btnnn">
+                            <button class="borrarBtn" data-id="${cada_cliente.code_user}"><i class='bx bxs-trash'></i></button>
+                        </div>
+                    </td>
+                    </tr>`;
+
+        clientes_sin_filtro.append(targetaCliente);
+      }
+     
+   } catch (error) {
+     return {
+       success: false,
+       error: error.response?.data.error || "Error BUSCAR",
+     };
+   }
+}
+
+
+async function correoFiltro() {
+  correoBusqueda= filtroValor;
+  console.log("correo busqueda",correoBusqueda);
+  
+  try {
+     const response = await fetch(`http://localhost:3000/api/filtrocorreo/${correoBusqueda}`,{
+      method:"GET"
+     })
+
+     const data = await response.json();
+     
+     //console.log(data.mensaje);
+     //console.log(data.datos);
+      let clientes_sin_filtro = $(".listaClientesMongo");
+      clientes_sin_filtro.empty();
+
+      let lista_filtro_nombre = data.datos;
+      console.log(lista_filtro_nombre);
+
+      for (let cada_cliente of lista_filtro_nombre) {
+        let targetaCliente = `
+                <tr class="cada_cliente">
+                    <td>
+                        <div class="nombre_email">
+                            <div class="ladoIzq">
+                                <div class="perfil">
+                                    
+                                </div>
+                            </div>
+                            <div class="ladoDer">
+                                <p>${cada_cliente.nombre}</p>
+                                <p>${cada_cliente.correo}</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td>${cada_cliente.apellidos}</td>
+                    <td>${cada_cliente.telefono}</td>
+                    <td>${cada_cliente.direccion}</td>
+                    <td class="bottones">
+                        <div class="borrar btnnn">
+                            <button class="borrarBtn" data-id="${cada_cliente.code_user}"><i class='bx bxs-trash'></i></button>
+                        </div>
+                    </td>
+                    </tr>`;
+
+        clientes_sin_filtro.append(targetaCliente);
+      }
+     
+   } catch (error) {
+     return {
+       success: false,
+       error: error.response?.data.error || "Error BUSCAR",
+     };
+   }
+}
+
+
+
+async function direccionFiltro() {
+  direcionBusqueda= filtroValor;
+  console.log("direccion busqueda",direcionBusqueda);
+  
+  try {
+     const response = await fetch(`http://localhost:3000/api/filtrodireccion/${direcionBusqueda}`,{
+      method:"GET"
+     })
+
      const data = await response.json();
      
      //console.log(data.mensaje);

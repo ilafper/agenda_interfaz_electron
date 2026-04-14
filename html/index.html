@@ -6,29 +6,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Electron Agenda</title>
     <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 
 
 <body class="inicio">
-    
+
+    <h1 class="titulo">Selecciona BDD</h1>
+
     <section class="todo">
-        <a href="mongo.html" class="caja1">
-            <div class="nombre">MONGO ATLAS</div>
+
+        <div class="card" data-link="mongo.html">
+            <div class="check"></div>
+
+            <div class="nombre">Mongo Atlas</div>
             <img class="imagene" src="../src/mongo_logo.png">
-            <div><p>Rápido, flexible y en la nube</p></div>
-        </a>
+            <p>Flexible y en la nube</p>
+        </div>
 
-        <a href="sql.html" class="caja2">
-            <div class="nombre">MYSQL</div>
+        <div class="card" data-link="sql.html">
+            <div class="check"></div>
+
+            <div class="nombre">MySQL</div>
             <img class="imagene2" src="../src/logo_sql.png">
-            <div><p>Ideal para datos organizados y complejos</p></div>
-        </a>
+            <p>Datos estructurados</p>
+        </div>
 
-        
     </section>
+
+    <button id="btnIr">Continuar</button>
+
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="../api/renderer.js"></script>
+    <script>
+        let seleccion = null;
+
+        $(".card").click(function () {
+            $(".card").removeClass("activo");
+            $(this).addClass("activo");
+
+            seleccion = $(this).data("link");
+            $("#btnIr").addClass("mostrar");
+        });
+
+        $("#btnIr").click(function () {
+            if (seleccion) {
+                window.location.href = seleccion;
+            }
+        });
+    </script>
 
 </body>
+
 
 </html>
