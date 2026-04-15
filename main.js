@@ -3,6 +3,7 @@ const path = require('path');
 const ApiMongo = require('./api/mongo');
 
 const ApiSql = require('./api/sql');
+
 let mainWindow;
 
 function createWindow() {
@@ -34,3 +35,11 @@ ipcMain.handle('api-clientes', async () => {
 ipcMain.handle('api-clientes-sql', async () => {
   return await ApiSql.clienteSql();
 });
+
+ipcMain.handle('crear-cliente-sql', async (event, datos) => {
+  return await ApiSql.crearClienteSql(datos);
+});
+
+
+
+

@@ -129,24 +129,12 @@ $(function () {
       console.log(nombre, apellidos, telefono, direccion, correo);
       
       try {
-        const response = await fetch("http://localhost:3000/api/crearcliente", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            nombre,
-            apellidos,
-            telefono,
-            direccion,
-            correo,
-          }),
-        });
+        
+        const response = await window.ApiSql.crearClienteSql(nombre, apellidos, telefono, direccion, correo);
 
-        const data = await response.json();
-        console.log(data.message);
+        console.log(response);
         $(".modalCrear").fadeOut();
-        $('.persomensaje').html(data.message);
+        $('.persomensaje').html(response);
         mostrarModalPerso();
 
 

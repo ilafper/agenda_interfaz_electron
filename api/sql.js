@@ -18,10 +18,12 @@ const ApiSql = {
     }
   },
 
-  crearClienteSql: async () => {
+  crearClienteSql: async (datos) => {
     try {
-       const reponse = await axios.post("url", { nombre, apellidos, telefono, direccion, correo });
-       return { success: true, data: reponse.data };
+       const response = await sql.post("/crearclientsql", datos);
+       return { success: true, data: response.data };
+       
+       
     } catch (error) {
         return { success: false, error: error.response?.data?.error || 'Error' };
     }

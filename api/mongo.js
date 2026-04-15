@@ -11,6 +11,7 @@ const ApiMongo = {
     try {
       const response = await mongo.get('/clientes');
       return { success: true, data: response.data };
+      
     } catch (error) {
       return { success: false, error: error.response?.data?.error || 'Error' };
     }
