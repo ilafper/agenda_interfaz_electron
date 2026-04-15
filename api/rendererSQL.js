@@ -1,17 +1,18 @@
 $(function () {
-  async function cargarClientesMongo() {
+  async function cargarClientessql() {
     try {
-      const lista_clientes_mongo = await window.apiMongo.clientes();
+      const lista_clientes_sql = await window.ApiSql.clientes_sql();
 
-      if (!lista_clientes_mongo.success) {
-        console.error(lista_clientes_mongo.error);
+      if (!lista_clientes_sql.success) {
+        console.error(lista_clientes_sql.error);
         return;
       }
+
 
       let clientes = $(".listaClientesMongo");
       clientes.empty();
 
-      let lista_cliente = lista_clientes_mongo.data.lista_clientes;
+      let lista_cliente = lista_clientes_sql.data.lista_clientes;
       console.log(lista_cliente);
 
       for (let cada_cliente of lista_cliente) {
@@ -43,7 +44,7 @@ $(function () {
         clientes.append(targetaCliente);
       }
 
-      console.log("Clientes Mongo:", lista_clientes_mongo.data.lista_clientes);
+      console.log("Clientes Mongo:", lista_clientes_sql.data.lista_clientes);
     } catch (error) {
       console.error("Error:", error);
     }
@@ -114,7 +115,7 @@ $(function () {
   function ocultarModalPerso() {
     $('.modalPerso').css('display', 'none');
   }
-  cargarClientesMongo();
+  cargarClientessql();
 
   async function creaCliente() {
     $(".enviarDatos").on("click", async function (e) {
@@ -149,7 +150,7 @@ $(function () {
         mostrarModalPerso();
 
 
-        cargarClientesMongo();
+        cargarClientessql();
       } catch (error) {
         console.error(error);
       }
@@ -268,7 +269,7 @@ async function filtroNombre() {
   nombreBusqueda= filtroValor;
   console.log("nombre busqueda",nombreBusqueda);
   if(nombreBusqueda=== ""){
-    cargarClientesMongo();
+    cargarClientessql();
   }
   try {
      const response = await fetch(`http://localhost:3000/api/filtronombre/${nombreBusqueda}`,{

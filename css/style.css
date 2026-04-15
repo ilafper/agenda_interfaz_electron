@@ -70,6 +70,7 @@ body {
     border: 2px solid #555;
 }
 
+
 .card.activo .check {
     background: #67f367;
     border: none;
@@ -138,7 +139,7 @@ body {
 }
 
 /* HEADER */
-.headerClean {
+header {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -168,13 +169,17 @@ body {
     border-radius: 8px;
     cursor: pointer;
     font-size: 18px;
-    color: #131E3F;
+    color:#131E3F;
     transition: 0.2s;
 }
 
 .btnBack:hover {
     background: #131E3F;
     color: white;
+}
+.btnBack a:hover{
+    text-decoration: none;
+    color:#ffffff;
 }
 
 /* CENTRO */
@@ -259,14 +264,13 @@ body {
     background: #0f172a;
 }
 .abajo{
-    margin-top: auto;
+    margin-top: 2%;
     width: 100%;
-    height: 100vh;
+    height: auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    
-   
+    margin-bottom: 3%;
 }
 
 
@@ -389,6 +393,45 @@ body {
     z-index: 1000;
 }
 
+.modalPerso{
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(6px);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 800;
+}
+
+.persomensaje{
+    color: #0f172a;
+
+}
+
+.mensaje{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.siAceptar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #121e46;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+
 .modalBorrar {
     position: fixed;
     inset: 0;
@@ -400,7 +443,14 @@ body {
     z-index: 900;
 }
 
-
+.formu-content3 {
+    width: 420px;
+    background: white;
+    border-radius: 14px;
+    padding: 20px;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.25);
+    animation: modalIn 0.5s ease;
+}
 
 
 .formu-content {
@@ -425,7 +475,7 @@ body {
 }
 
 
-/* HEADER MODAL */
+/* HEADER */
 .modalHeader {
     display: flex;
     justify-content: space-between;

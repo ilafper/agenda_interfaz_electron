@@ -6,14 +6,155 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Electron Agenda</title>
     <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
 </head>
 
 
-<body>
+<body class="mongo">
+    <header>
+
+        <div class="left">
+            <button class="btnBack">
+                <i class='bx bx-arrow-back'></i>
+            </button>
+
+            <h1>Panel SQL</h1>
+        </div>
+
+        <div class="center">
+            <div class="filtroBar">
+                <select class="campoFiltro">
+                    <option value="nombre">Nombre</option>
+                    <option value="apellidos">Apellidos</option>
+                    <option value="direccion">Dirección</option>
+                    <option value="telefono">Teléfono</option>
+                    <option value="correo">Correo</option>
+                </select>
+
+                <input type="text" class="valorFiltro" placeholder="Buscar cliente...">
+
+                <button class="buscarFiltro">
+                    <i class='bx bx-search'></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="right">
+            <button class="addUser">
+                <i class='bx bxs-user-plus'></i>
+                <span>Nuevo</span>
+            </button>
+        </div>
+
+    </header>
+    <section class="abajo">
+
+        <table class="tablamongo">
+
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>apellidos</th>
+                    <th>telefono</th>
+                    <th>direccion</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+
+
+            <tbody class="listaClientesMongo">
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+
+
+    <div class="modalCrear" style="display:none;">
+
+        <div class="formu-content">
+
+            <div class="modalHeader">
+                <h2>Crear cliente</h2>
+
+                <button class="cerrar">
+                    <i class='bx bx-x'></i>
+                </button>
+            </div>
+
+            <form method="post" class="formGrid">
+
+                <div class="fiill">
+                    <label>Nombre</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+
+                <div class="fiill">
+                    <label>Apellidos</label>
+                    <input type="text" id="apellidos" name="apellidos" required>
+                </div>
+
+                <div class="fiill">
+                    <label>Teléfono</label>
+                    <input type="tel" id="telefono" name="telefono" required>
+                </div>
+
+                <div class="fiill">
+                    <label>Dirección</label>
+                    <input type="text" id="direccion" name="direccion" required>
+                </div>
+
+                <div class="fiill">
+                    <label>Correo</label>
+                    <input type="email" id="correo" name="correo" required>
+                </div>
+
+                <button class="enviarDatos" type="submit">
+                    Crear cliente
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <div class="modalBorrar" style="display:none;">
+
+        <div class="formu-content2">
+            
+            <div class="cerrarr">
+                <h3>¿Estas seguro de borrar este cliente?</h3>
+                <button class="cerrar"><i class='bx bx-x'></i></button>
+            </div>
+            <form>
+                <button class="noBorrar" type="button">No</button>
+                <button class="siBorrar" type="button">Si</button>
+            </form>
+        </div>
+    </div>
+
+
+    <div class="modalPerso">
+        <div class="formu-content3">
+            <div class="mensaje">
+                <p class="persomensaje"></p>
+                <form>
+                    <button class="siAceptar" type="button">Aceptar</button>
+                </form>
+            </div>
+        
+        </div>
     
-   <h1>sql</h1>
+    
+    </div>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="../api/renderer.js"></script>
+    <script src="../api/rendererSQL.js"></script>
 
 </body>
 
