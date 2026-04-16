@@ -30,16 +30,67 @@ const ApiSql = {
         return { success: false, error: error.response?.data?.error || 'Error' };
     }
   },
-  
+
   borrarClienteSql: async (id_eliminar) =>{
     try {
-      //
-      const response = await sql.delete(`/api/deleteclientesql/${id_eliminar}`, );
+      // const response = await sql.delete(`/deleteclientesql/${id_eliminar}`);
+      const response = await sql.delete(`/deleteclientesql/${id_eliminar}`);
       return { success: true, data: response.data };
     } catch (error) {
       return { success: false, error: error.response?.data?.error || 'Error' };
     }
-  }
+  },
+
+
+  filtroNombreSql: async (nombreBusqueda) =>{
+    try {
+      
+      const response = await sql.get(`/filtronombresql/${nombreBusqueda}`);
+      return { success: true, data: response.data };
+    } catch (error) {
+      return { success: false, error: error.response?.data?.error || 'Error' };
+    }
+  },
+
+  filtroApellidoSql: async (apellidosBusqueda) =>{
+    try {
+      
+      const response = await sql.get(`/filtroapellidossql/${apellidosBusqueda}`);
+      return { success: true, data: response.data };
+    } catch (error) {
+      return { success: false, error: error.response?.data?.error || 'Error' };
+    }
+  },
+  filtroDireccionSql: async (direccion) =>{
+    try {
+      
+      const response = await sql.get(`/filtrodireccion/${direccion}`);
+      
+      return { success: true, data: response.data };
+    } catch (error) {
+      return { success: false, error: error.response?.data?.error || 'Error' };
+    }
+  },
+  filtroCorreoSql: async (telefono) =>{
+    try {
+      
+      const response = await sql.get(`/filtrocorreo/${telefono}`);
+      
+      return { success: true, data: response.data };
+    } catch (error) {
+      return { success: false, error: error.response?.data?.error || 'Error' };
+    }
+  },
+   filtroTelefonoSql: async (telefono) =>{
+    try {
+      
+      const response = await sql.get(`/filtrotelefono/${telefono}`);
+      
+      return { success: true, data: response.data };
+    } catch (error) {
+      return { success: false, error: error.response?.data?.error || 'Error' };
+    }
+  },
 
 };
 
