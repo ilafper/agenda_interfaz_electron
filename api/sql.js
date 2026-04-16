@@ -8,6 +8,8 @@ const sql = axios.create({
   timeout: 10000
 });
 
+
+
 const ApiSql = {
   clienteSql: async () => {
     try {
@@ -27,7 +29,18 @@ const ApiSql = {
     } catch (error) {
         return { success: false, error: error.response?.data?.error || 'Error' };
     }
+  },
+  
+  borrarClienteSql: async (id_eliminar) =>{
+    try {
+      //
+      const response = await sql.delete(`/api/deleteclientesql/${id_eliminar}`, );
+      return { success: true, data: response.data };
+    } catch (error) {
+      return { success: false, error: error.response?.data?.error || 'Error' };
+    }
   }
+
 };
 
 module.exports = ApiSql;

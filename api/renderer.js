@@ -143,6 +143,7 @@ $(function () {
         });
 
         const data = await response.json();
+        
         console.log(data.message);
         $(".modalCrear").fadeOut();
         $('.persomensaje').html(data.message);

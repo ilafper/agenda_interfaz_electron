@@ -119,8 +119,9 @@ $(function () {
 
   async function creaCliente() {
     $(".enviarDatos").on("click", async function (e) {
-      e.preventDefault(); // Evita que se recargue la página
-      console.log("sisisi");
+
+      e.preventDefault();
+
       let nombre = $("#nombre").val();
       let apellidos = $("#apellidos").val();
       let telefono = $("#telefono").val();
@@ -131,10 +132,14 @@ $(function () {
       try {
         
         const response = await window.ApiSql.crearClienteSql(nombre, apellidos, telefono, direccion, correo);
-
-        console.log(response);
+        
+        console.log("hola hola hola ");
+        
+        console.log(response.data.mensaje);
+        
+       
         $(".modalCrear").fadeOut();
-        $('.persomensaje').html(response);
+        $('.persomensaje').html(response.data.mensaje);
         mostrarModalPerso();
 
 

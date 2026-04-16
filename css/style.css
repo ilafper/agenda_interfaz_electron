@@ -27,7 +27,6 @@ body {
     display: flex;
     gap: 25px;
     width: 50%;
-    border: 1px solid white;
     justify-content: center;
     padding: 30px;
 }

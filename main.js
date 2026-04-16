@@ -41,5 +41,7 @@ ipcMain.handle('crear-cliente-sql', async (event, datos) => {
 });
 
 
-
+ipcMain.handle('borrar-cliente-sql', async (event, ) => {
+  return await ApiSql.crearClienteSql(id_eliminar);
+});
 
